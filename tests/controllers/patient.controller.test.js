@@ -14,8 +14,8 @@ describe('Patient Controller Tests', () => {
         oncelikNedeni: '65 Yaş Üstü'
       },
       kullaniciBilgisi: {
-        kullanici_adi: 'AbisenaHBYS',
-        sifre: 'Siramatik2025'
+        kullanici_adi: 'exampleUser',
+        sifre: 'examplePassword123'
       }
     };
 

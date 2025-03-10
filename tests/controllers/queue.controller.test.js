@@ -60,8 +60,8 @@ describe('Queue Controller Tests', () => {
           siradakiHastalar: []
         },
         kullaniciBilgisi: {
-          kullanici_adi: 'AbisenaHBYS',
-          sifre: 'Siramatik2025'
+          kullanici_adi: 'exampleUser',
+          sifre: 'examplePassword123'
         }
       };
 
