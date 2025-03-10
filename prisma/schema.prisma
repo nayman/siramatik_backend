@@ -1,0 +1,71 @@
+// This is your Prisma schema file
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Patient {
+  id            Int      @id @default(autoincrement())
+  adiSoyadi     String
+  siraNo        Int
+  protokolNo    String
+  servisID      Int
+  servisAdi     String
+  ipAdres       String
+  oncelikNedeni String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  service       Service  @relation(fields: [servisID], references: [id])
+  queueEntries  Queue[]
+
+  @@unique([protokolNo, servisID])
+}
+
+model Service {
+  id        Int       @id
+  servisAdi String
+  patients  Patient[]
+  queues    Queue[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Queue {
+  id                    Int       @id @default(autoincrement())
+  patientId             Int
+  serviceId             Int
+  triajID               String?
+  triajAdi              String?
+  siradakiHastaSayisi   Int       @default(0)
+  ortalamaMuayeneSuresi Int?
+  randevuVar            Boolean    @default(false)
+  randevuSaati          String?
+  randevuTuru           String?
+  randevuTarihi         DateTime?
+  maskeleme             Boolean    @default(false)
+  status                String     @default("waiting") // waiting, called, completed, cancelled
+  priority              String     @default("NORMAL")  // NORMAL, HIGH
+  calledAt              DateTime?
+  calledBy              String?
+  drID                  String?
+  drAdi                 String?
+  createdAt             DateTime   @default(now())
+  updatedAt             DateTime   @updatedAt
+  patient               Patient    @relation(fields: [patientId], references: [id])
+  service               Service    @relation(fields: [serviceId], references: [id])
+
+  @@unique([patientId, serviceId])
+}
+
+model User {
+  id            Int      @id @default(autoincrement())
+  kullanici_adi String   @unique
+  sifre         String
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}

@@ -1,0 +1,196 @@
+<?xml version="1.0"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="IDahiSesWebServisservice" targetNamespace="http://tempuri.org/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ns1="urn:DahiSesWebServisIntf">
+  <types>
+    <xs:schema targetNamespace="urn:DahiSesWebServisIntf" xmlns="urn:DahiSesWebServisIntf">
+      <xs:complexType name="THastaBilgisi">
+        <sequence xmlns="http://www.w3.org/2001/XMLSchema">
+          <xs:element name="AdiSoyadi" type="xs:string"/>
+          <xs:element name="SiraNo" type="xs:string"/>
+          <xs:element name="ProtokolNo" type="xs:string"/>
+          <xs:element name="CagriTipi" type="ns1:TCTAlan"/>
+          <xs:element name="ServisID" type="xs:string"/>
+          <xs:element name="ServisAdi" type="xs:string"/>
+          <xs:element name="TriajID" type="xs:string"/>
+          <xs:element name="TriajAdi" type="xs:string"/>
+          <xs:element name="BankoNo" type="xs:string"/>
+          <xs:element name="DrID" type="xs:string"/>
+          <xs:element name="DrAdi" type="xs:string"/>
+          <xs:element name="KullaniciAdi" type="xs:string"/>
+          <xs:element name="IPAdres" type="xs:string"/>
+          <xs:element name="RandevuVar" type="xs:string"/>
+          <xs:element name="RandevuSaati" type="xs:string"/>
+          <xs:element name="RandevuTuru" type="xs:string"/>
+          <xs:element name="SiradakiHastaSayisi" type="xs:string"/>
+          <xs:element name="OrtalamaMuayeneSuresi" type="xs:string"/>
+          <xs:element name="OncelikNedeni" type="xs:string"/>
+          <xs:element name="Maskeleme" type="xs:string"/>
+          <xs:element name="SiradakiHastalar" type="ns1:ArrayOfSiradakiHastalar"/>
+          <xs:element name="KayitsizHastalar" type="ns1:ArrayOfKayitsizHastalar"/>
+          <xs:element name="CagirilanHastalar" type="ns1:ArrayOfCagirilanHastalar"/>
+        </sequence>
+      </xs:complexType>
+      <xs:simpleType name="TCTAlan">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="YeniCagri"/>
+          <xs:enumeration value="TekrarCagri"/>
+          <xs:enumeration value="Test"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="ArrayOfSiradakiHastalar">
+        <xs:complexContent>
+          <xs:restriction base="soapenc:Array">
+            <sequence xmlns="http://www.w3.org/2001/XMLSchema"/>
+            <xs:attribute ref="soapenc:arrayType" n1:arrayType="ns1:TSiradakiHastalar[]" xmlns:n1="http://schemas.xmlsoap.org/wsdl/"/>
+          </xs:restriction>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfKayitsizHastalar">
+        <xs:complexContent>
+          <xs:restriction base="soapenc:Array">
+            <sequence xmlns="http://www.w3.org/2001/XMLSchema"/>
+            <xs:attribute ref="soapenc:arrayType" n1:arrayType="ns1:TKayitsizHastalar[]" xmlns:n1="http://schemas.xmlsoap.org/wsdl/"/>
+          </xs:restriction>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfCagirilanHastalar">
+        <xs:complexContent>
+          <xs:restriction base="soapenc:Array">
+            <sequence xmlns="http://www.w3.org/2001/XMLSchema"/>
+            <xs:attribute ref="soapenc:arrayType" n1:arrayType="ns1:TCagirilanHastalar[]" xmlns:n1="http://schemas.xmlsoap.org/wsdl/"/>
+          </xs:restriction>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="TSiradakiHastalar">
+        <sequence xmlns="http://www.w3.org/2001/XMLSchema">
+          <xs:element name="AdiSoyadi" type="xs:string"/>
+          <xs:element name="SiraNo" type="xs:string"/>
+          <xs:element name="ProtokolNo" type="xs:string"/>
+          <xs:element name="OncelikNedeni" type="xs:string"/>
+          <xs:element name="RandevuVar" type="xs:string"/>
+          <xs:element name="RandevuSaati" type="xs:string"/>
+          <xs:element name="RandevuTuru" type="xs:string"/>
+          <xs:element name="Maskeleme" type="xs:string"/>
+        </sequence>
+      </xs:complexType>
+      <xs:complexType name="TKayitsizHastalar">
+        <sequence xmlns="http://www.w3.org/2001/XMLSchema">
+          <xs:element name="AdiSoyadi" type="xs:string"/>
+          <xs:element name="Maskeleme" type="xs:string"/>
+        </sequence>
+      </xs:complexType>
+      <xs:complexType name="TCagirilanHastalar">
+        <sequence xmlns="http://www.w3.org/2001/XMLSchema">
+          <xs:element name="AdiSoyadi" type="xs:string"/>
+          <xs:element name="ProtokolNo" type="xs:string"/>
+          <xs:element name="MuayeneOldu" type="xs:string"/>
+        </sequence>
+      </xs:complexType>
+      <xs:complexType name="TKullanici">
+        <sequence xmlns="http://www.w3.org/2001/XMLSchema">
+          <xs:element name="Kullanici_adi" type="xs:string"/>
+          <xs:element name="Sifre" type="xs:string"/>
+        </sequence>
+      </xs:complexType>
+      <xs:complexType name="TSonuc">
+        <sequence xmlns="http://www.w3.org/2001/XMLSchema">
+          <xs:element name="Mesaj" type="xs:string"/>
+          <xs:element name="Durum" type="xs:boolean"/>
+        </sequence>
+      </xs:complexType>
+      <xs:complexType name="TListeGuncelle">
+        <sequence xmlns="http://www.w3.org/2001/XMLSchema">
+          <xs:element name="ServisID" type="xs:string"/>
+          <xs:element name="ServisAdi" type="xs:string"/>
+          <xs:element name="TriajID" type="xs:string"/>
+          <xs:element name="TriajAdi" type="xs:string"/>
+          <xs:element name="SiradakiHastaSayisi" type="xs:string"/>
+          <xs:element name="OrtalamaMuayeneSuresi" type="xs:string"/>
+          <xs:element name="SiradakiHastalar" type="ns1:ArrayOfSiradakiHastalar"/>
+          <xs:element name="KayitsizHastalar" type="ns1:ArrayOfKayitsizHastalar"/>
+        </sequence>
+      </xs:complexType>
+      <xs:complexType name="THastaEkle">
+        <sequence xmlns="http://www.w3.org/2001/XMLSchema">
+          <xs:element name="AdiSoyadi" type="xs:string"/>
+          <xs:element name="SiraNo" type="xs:string"/>
+          <xs:element name="ProtokolNo" type="xs:string"/>
+          <xs:element name="ServisID" type="xs:string"/>
+          <xs:element name="ServisAdi" type="xs:string"/>
+          <xs:element name="IPAdres" type="xs:string"/>
+          <xs:element name="OncelikNedeni" type="xs:string"/>
+        </sequence>
+      </xs:complexType>
+    </xs:schema>
+  </types>
+  <message name="CagriYap0Request">
+    <part name="Value" type="ns1:THastaBilgisi"/>
+    <part name="User" type="ns1:TKullanici"/>
+  </message>
+  <message name="CagriYap0Response">
+    <part name="return" type="ns1:TSonuc"/>
+  </message>
+  <message name="SiradakileriGuncelle1Request">
+    <part name="Value" type="ns1:TListeGuncelle"/>
+    <part name="User" type="ns1:TKullanici"/>
+  </message>
+  <message name="SiradakileriGuncelle1Response">
+    <part name="return" type="ns1:TSonuc"/>
+  </message>
+  <message name="HastaEkle2Request">
+    <part name="Value" type="ns1:THastaEkle"/>
+    <part name="User" type="ns1:TKullanici"/>
+  </message>
+  <message name="HastaEkle2Response">
+    <part name="return" type="ns1:TSonuc"/>
+  </message>
+  <portType name="IDahiSesWebServis">
+    <operation name="CagriYap">
+      <input message="tns:CagriYap0Request"/>
+      <output message="tns:CagriYap0Response"/>
+    </operation>
+    <operation name="SiradakileriGuncelle">
+      <input message="tns:SiradakileriGuncelle1Request"/>
+      <output message="tns:SiradakileriGuncelle1Response"/>
+    </operation>
+    <operation name="HastaEkle">
+      <input message="tns:HastaEkle2Request"/>
+      <output message="tns:HastaEkle2Response"/>
+    </operation>
+  </portType>
+  <binding name="IDahiSesWebServisbinding" type="tns:IDahiSesWebServis">
+    <binding xmlns="http://schemas.xmlsoap.org/wsdl/soap/" style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="CagriYap">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:DahiSesWebServisIntf-IDahiSesWebServis#CagriYap" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:DahiSesWebServisIntf-IDahiSesWebServis"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:DahiSesWebServisIntf-IDahiSesWebServis"/>
+      </output>
+    </operation>
+    <operation name="SiradakileriGuncelle">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:DahiSesWebServisIntf-IDahiSesWebServis#SiradakileriGuncelle" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:DahiSesWebServisIntf-IDahiSesWebServis"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:DahiSesWebServisIntf-IDahiSesWebServis"/>
+      </output>
+    </operation>
+    <operation name="HastaEkle">
+      <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:DahiSesWebServisIntf-IDahiSesWebServis#HastaEkle" style="rpc"/>
+      <input>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:DahiSesWebServisIntf-IDahiSesWebServis"/>
+      </input>
+      <output>
+        <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:DahiSesWebServisIntf-IDahiSesWebServis"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="IDahiSesWebServisservice">
+    <port name="IDahiSesWebServisPort" binding="tns:IDahiSesWebServisbinding">
+      <address xmlns="http://schemas.xmlsoap.org/wsdl/soap/" location="http://10.210.193.152:8080/soap/IDahiSesWebServis"/>
+    </port>
+  </service>
+</definitions>
+

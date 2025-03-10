@@ -1,0 +1,39 @@
+{
+  "hastaBilgisi": {
+    "adiSoyadi": "SEHEL CANDAN",
+    "siraNo": 52,
+    "protokolNo": "595518",
+    "cagriTipi": "YeniCagri",
+    "servisID": 3474,
+    "servisAdi": "SEÇKİN AYDIN BEYİN CERRAHİ POLK.",
+    "drID": 6126,
+    "drAdi": "DOÇ.DR. SEÇKİN AYDIN",
+    "kullaniciAdi": "CUMA TEKİN",
+    "ipAdres": "10.212.74.194",
+    "oncelikNedeni": "65 Yaş Üstü",
+    "siradakiHastaSayisi": 22,
+    "siradakiHastalar": [
+      {
+        "adiSoyadi": "FATMA ERKAN",
+        "siraNo": 54,
+        "protokolNo": 595858,
+        "oncelikNedeni": "Gebelik Hali",
+        "randevuVar": 0,
+        "randevuSaati": "",
+        "randevuTuru": "",
+        "maskeleme": 0
+      },
+      {
+        "adiSoyadi": "Cuma ERKAN",
+        "siraNo": 55,
+        "protokolNo": 59858,
+        "oncelikNedeni": "Şehit ve Gazi Yakını",
+        "randevuVar": 0,
+        "randevuSaati": "13:00",
+        "randevuTuru": "Doktor Randevusu",
+        "maskeleme": 1
+      }
+    ],
+    "kullanici_adi": "AbisenaHBYS",
+    "sifre": "Siramatik2025"  }
+}
